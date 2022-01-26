@@ -27,6 +27,18 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+    Route::get('/info', function () {
+        return view('info');
+    })->name('info');
+    Route::get('/menu', function () {
+        return view('menu');
+    })->name('menu');
+    Route::get('/contact', function () {
+        return view('contact');
+    })->name('contact');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/resetpassword/{id}', [AdminController::class, 'resetpassword'])->name('admin.resetpassword');
     Route::put('/admin/updatepassword/{id}', [AdminController::class, 'updatepassword'])->name('admin.updatepassword');

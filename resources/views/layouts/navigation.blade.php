@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
+                <div class="flex-(shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
@@ -45,8 +45,17 @@
                 {{-- ************************************************************************************* --}}
                 @if(Auth::check() && (Auth::user()->hasRole("management") || Auth::user()->hasRole("admin")))
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Voor managers en admins') }}
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                            {{ __('Home') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('info')" :active="request()->routeIs('info')">
+                            {{ __('Info') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('menu')" :active="request()->routeIs('menu')">
+                            {{ __('Menu') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
+                            {{ __('Contact') }}
                         </x-nav-link>
                     </div>
                 @endif
